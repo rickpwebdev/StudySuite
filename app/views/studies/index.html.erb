@@ -15,26 +15,15 @@
 <section class = "search-results">
 	<header>
 		<h1 class = "h3">Results</h1>
-		</header>
-		<table class = "table table-striped">
-		<thead>
-			<tr>
-			<th>Study name</th>
-			<th>CRC</th>
-			<th>Enrollment</th>
-			<th> Expiration date</th>
-			</tr>
-			</thead>
-			</tbody>
+	</header>
+	<ol class ="list-group">
+		<% @studies.each do |study| %>
+			<li class = "list-group-item clearfix">
+			<h3 class ="pull-right"> <small class= "text-uppercase">CRC: <%= study.crc %></small></h3>
+			<h2 class="h3"><%= study.study_name %><small> protocol #000<%= study.protocol %></small></h2>
+			<h4><small>Enrollment: <%= study.enrollment %> Target: <%=study.target %></small></h4>
+			</li>
+		<% end %>
+	</ol>
 
-			<% @studies.each do |study| %>
-			<tr>
-			<td><%= study.study_name %></td>
-			<td><%= study.crc %></td>
-			<td><%= study.enrollment %></td>
-			<td><%= study.expiration_date %></td>
-			</tr>
-			<% end %>
-			</tbody>
-			</table>
-			</section>
+</section>
