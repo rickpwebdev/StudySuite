@@ -10,6 +10,11 @@ class StudiesController < ApplicationController
 			order(study_search_term.order)
 		else
 			@studies = []
+
 		end
+		respond_to do |format|
+				format.html {}
+				format.json { render json: @studies }
+			end
 	end
 end
